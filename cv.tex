@@ -1,0 +1,130 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.7in]{geometry}  % Reduced margins for more space
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% Formatting - Reduced spacing
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Section formatting - Reduced spacing
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{4pt}  % Reduced from 12pt/6pt
+
+\titleformat{\subsection}{\bfseries}{}{0em}{}
+\titlespacing{\subsection}{0pt}{6pt}{2pt}  % Reduced spacing
+
+% Custom commands - Reduced spacing
+\newcommand{\cventry}[6]{
+    \textbf{#1} \hfill #2 \\
+    \textit{#3} \hfill \textit{#4} \\
+    #5
+    \ifx&#6&\else\\\textit{#6}\fi
+    \vspace{4pt}  % Reduced from 6pt
+}
+
+\newcommand{\education}[5]{
+    \textbf{#1} \hfill #2 \\
+    #3 \hfill \textit{#4} \\
+    #5
+    \vspace{4pt}  % Reduced from 6pt
+}
+
+\begin{document}
+
+% Header - Condensed
+\begin{center}
+    {\huge\bfseries Danny Muir} \\[4pt]  % Reduced spacing
+    Seattle, WA $\bullet$ danmuir@outlook.com $\bullet$ (206) 397-5558 \\
+    \href{https://linkedin.com/in/danny-muir}{linkedin.com/in/danny-muir} $\bullet$ 
+    \href{https://github.com/zeckten}{github.com/zeckten}
+\end{center}
+
+\vspace{8pt}  % Reduced spacing
+
+% FRONT-LOADED: Education first (scannable, high-impact)
+\section{Education}
+\education{University of Washington, Seattle}{Expected June 2027}{Bachelor of Science in Computer Engineering \textbf{| GPA: 3.84}}{Dean's List All Quarters 2023-2025}{Paul G. Allen School of Computer Science \& Engineering | \textbf{Minor:} Neural Computation and Engineering}
+
+% FRONT-LOADED: Technical Skills (dense, scannable)
+\section{Technical Skills}
+\textbf{Programming:} Java, Python, C, JavaScript, HTML, Bash \textbf{|} \textbf{ML/AI:} PyTorch, TensorFlow, Neural Networks, Computer Vision, LLMs \textbf{|} \textbf{Signal Processing:} VLF/ULF electromagnetic analysis \textbf{|} \textbf{Cloud/DB:} PostgreSQL, AWS \textbf{|} \textbf{Web:} Django, Flask, HTML, JavaScript \textbf{|} \textbf{Research:} Grant writing, project management, DevOps
+
+% FRONT-LOADED: Research Experience (strongest section)
+\section{Research Experience}
+
+\cventry{Associate Researcher \& Project Lead}{January 2025 -- Present}{Sensors, Energy, and Automation Laboratory (SEAL)}{University of Washington}{
+\begin{itemize}[leftmargin=12pt,topsep=0pt,itemsep=1pt,parsep=0pt]  % Reduced spacing
+    \item Leading interdisciplinary teams on projects from DevOps solutions to DOE STTR proposals
+    \item Conducting VLF/ULF signal processing research for atmospheric and geophysical applications
+    \item Building Django web application with PostgreSQL backend on AWS for lab data management
+    \item Spearheading grant proposals to DOE, NIH, NSF, CDC, and Google with emphasis on technical innovation
+    \item Developing LLM-driven devices and applications for academic, commercial, and defense sectors
+\end{itemize}
+}{}
+
+\cventry{Project Management Team Lead}{March 2025 -- May 2025}{Sensors, Energy, and Automation Laboratory (SEAL)}{University of Washington}{
+\begin{itemize}[leftmargin=12pt,topsep=0pt,itemsep=1pt,parsep=0pt]
+    \item Established and led Project Management Team, developing automation solutions for lab workflow efficiency
+    \item Implemented targeted improvements across laboratory systems through data-driven analysis
+    \item Authored comprehensive workflow guidelines, improving research reproducibility and lab efficiency
+\end{itemize}
+}{}
+
+\cventry{Web Developer \& Research Assistant}{June 2024 -- Present}{Illimited Lab}{University of Washington}{
+\begin{itemize}[leftmargin=12pt,topsep=0pt,itemsep=1pt,parsep=0pt]
+    \item Enhanced laboratory website to improve user experience and recruitment efficiency
+    \item Contributed to research projects and provided technical insights during lab meetings
+\end{itemize}
+}{}
+
+% Grants section (still high-impact but brief)
+\section{Grants and Funding}
+\textbf{Federal Research Proposals (2025):} Co-author on DOE STTR, NIH, NSF, and CDC proposals for automation, sensor technology, and biomedical applications \\
+\textbf{Industry Research Proposals (2025):} Contributing researcher on Google and industry partner applications for ML and automation research
+
+% Research Projects (concrete achievements)
+\section{Research Projects}
+\textbf{sudokuNet - Deep Learning for Puzzle Solving} \hfill \href{https://github.com/Zeckten/sudokuNet}{github.com/Zeckten/sudokuNet} \\
+PyTorch ResNet CNN achieving 96.78\% accuracy on Sudoku solving. Trained on RTX 2080 Ti with systematic hyperparameter optimization.
+
+\textbf{cs50cloudchat - Real-time Communication System} \hfill \href{https://github.com/Zeckten/cs50cloudchat}{github.com/Zeckten/cs50cloudchat} \\
+Flask web application with user authentication, administrative tools, and real-time messaging with secure protocols.
+
+% Leadership condensed
+\section{Leadership and Service}
+\cventry{Vice President \& New Member Educator}{December 2023 -- Present}{Triangle Fraternity (STEM-exclusive)}{University of Washington}{
+Managing internal activities for 25+ members, overseeing academic/social programs, developing chapter website, and mentoring new candidates.
+}{}
+
+\cventry{Activities \& Volunteer Coordinator}{September 2024 -- March 2025}{HOSA – Future Health Professionals}{University of Washington}{
+Coordinating volunteer opportunities and professional development events for pre-health students.
+}{}
+
+% Professional Experience condensed
+\section{Professional Experience}
+\textbf{Seasonal Facilities Assistant} | \textit{Islandwood Environmental Learning Center} \hfill June 2023 -- Sept 2024 \\
+Facility maintenance including trail construction, environmental preservation, and facility management.
+
+\textbf{Dishwasher/Deli} | \textit{The Marketplace at Pleasant Beach} \hfill Jan 2022 -- Aug 2022 \\
+Food preparation, customer service, facility maintenance, and equipment handling.
+
+\textbf{Certified Lifeguard} | \textit{Bainbridge Island Metro Park \& Recreation} \hfill Apr 2021 -- Jan 2022 \\
+Safety monitoring, CPR/first aid certified, pool maintenance and chemistry management.
+
+% MOVED TO BACK: Research Interests and Objective combined
+\section{Research Focus \& Career Objective}
+Specializing in machine learning applications for neurotechnology and biomedical engineering, neuromorphic computing, neural computation and engineering, and electromagnetic signal processing. Seeking research or internship opportunities to advance neurotechnology, biotech, and neuromorphic computing through interdisciplinary collaboration and ML-driven device development.
+
+\section{Professional Development}
+\textbf{Memberships:} Tau Beta Pi Engineering Honor Society, HOSA – Future Health Professionals, Triangle Fraternity \\
+\textbf{Training:} Project management, grant writing, research methodology, laboratory safety protocols, CPR/First Aid
+
+\vspace{6pt}  % Reduced spacing
+\textit{References available upon request}
+
+\end{document}
