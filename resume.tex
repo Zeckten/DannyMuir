@@ -1,67 +1,52 @@
 \documentclass[10pt, letterpaper]{article}
-\usepackage[ignoreheadfoot, top=1.8cm, bottom=1.8cm, left=1.8cm, right=1.8cm]{geometry}
-\usepackage{titlesec, tabularx, array, xcolor, enumitem, hyperref}
+\usepackage[ignoreheadfoot, top=1.4cm, bottom=1.4cm, left=1.6cm, right=1.6cm]{geometry}
+\usepackage{titlesec, tabularx, array, xcolor, enumitem, hyperref, etoolbox}
 \definecolor{primaryColor}{RGB}{0, 0, 0}
 \hypersetup{colorlinks=true, urlcolor=primaryColor}
 \usepackage{charter}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
-\setlength{\columnsep}{0.2cm}
+\setlength{\columnsep}{0.15cm}
 \titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{1pt}\titlerule]
-\titlespacing{\section}{0pt}{0.3cm}{0.15cm}
+\titlespacing{\section}{0pt}{0.2cm}{0.1cm}
 \renewcommand\labelitemi{\small$\bullet$}
-\setlist{itemsep=1.5pt}
+\setlist{itemsep=0.5pt, topsep=1pt}
+
+\input{sections/data}
+
+% Visibility toggles — content wrapped in \cvonly{} is hidden here
+\newcommand{\cvonly}[1]{}
+\newcommand{\resumeonly}[1]{#1}
+
+% Entry format: {title}{org}{dates}{advisor — leave empty {} if none}{bullets}
+\newcommand{\roleentry}[5]{%
+  \textbf{#1}, #2 \hfill \textit{#3}\\%
+  \ifblank{#4}{}{\textit{#4}\\}%
+  \begin{itemize}%
+  #5%
+  \end{itemize}%
+}
+
 \begin{document}
 \begin{center}
-    \fontsize{12pt}{12pt}\selectfont \textbf{Danny Muir}\\
-    Seattle, WA \textbar\ \href{mailto:danmuir@outlook.com}{danmuir@outlook.com} \textbar\ 206 397 5558 \textbar\ \href{https://linkedin.com/in/danny-muir}{linkedin.com/in/danny-muir} \textbar\ \href{https://github.com/zeckten}{github.com/zeckten}
+    \fontsize{12pt}{12pt}\selectfont \textbf{\myName}\\
+    Seattle, WA \textbar\ \href{mailto:\myEmail}{\myEmail} \textbar\ \myPhone\ \textbar\ \href{https://\myLinkedIn}{\myLinkedIn} \textbar\ \href{https://\myGitHub}{\myGitHub}
 \end{center}
 
-\vspace{0.1cm}
-
 \section{Education}
-\textbf{University of Washington, Seattle} \hfill \textit{Expected June 2027}\\
-\textit{Bachelor of Science in Computer Engineering, Paul G. Allen School of Computer Science \& Engineering} \hfill \textbf{GPA: 3.84}\\
-\textbf{Minor:} Neural Computation and Engineering \hfill \textbf{Dean's List:} All Quarters 2023--2025\\
+\textbf{University of Washington, Seattle} \hfill \textit{\myGradYear}\\
+\textit{Bachelor of Science in Computer Engineering, Paul G. Allen School of Computer Science \& Engineering} \hfill \textbf{GPA: \myGPA}\\
+\textbf{Minor:} Neural Computation and Engineering \hfill \textbf{Dean's List:} \myDeansList\\
 \textbf{Honors:} Tau Beta Pi Engineering Honor Society\\
-\textbf{Relevant Coursework:} Machine Learning, Software Design \& Implementation, Data Structures \& Algorithms, Hardware/Software Interface, Digital Circuits, Scientific Computing, Physics, Chemistry, Biology
+\textbf{Relevant Coursework:} Machine Learning, Natural Language Processing, Systems Programming, Software Design \& Implementation, Data Structures \& Algorithms, Hardware/Software Interface, Digital Circuits
 
 \section{Experience}
-\textbf{Undergraduate Researcher}, Neural Systems Laboratory, UW \hfill Oct 2025--Present\\
-\textit{Advisor: Dr. Rajesh Rao, Paul G. Allen School of Computer Science \& Engineering}
-\begin{itemize}
-\item Optimizing multi-session neural decoding framework in collaboration with Matthew Bryan, building on temporal basis function models for closed-loop neural stimulation (Bryan et al., arXiv:2507.15274).
-\item Testing and selecting optimal implementations for session-specific embeddings and test-time adaptation methods.
-\item Improving training efficiency, model complexity, and cross-session generalization through systematic empirical evaluation.
-\item Beginning honors thesis research on modeling traveling waves in motor cortex via thalamic signals (Winter 2026).
-\end{itemize}
-
-\textbf{Associate Researcher, VP Operations}, Sensors, Energy, and Automation Laboratory (SEAL), UW \hfill Jan 2025--Oct 2025\\
-\textit{Advisor: Dr. Alexander Mamishev, Department of Electrical \& Computer Engineering}
-\begin{itemize}
-\item Conducted VLF/ULF signal processing research for atmospheric and geophysical monitoring applications.
-\item Co-authored federal grant proposals to DOE, NIH, NSF, CDC, and Google (STTR/SBIR programs).
-\item Led project management team developing custom automation and DevOps solutions for laboratory operations.
-\end{itemize}
+\input{sections/research}
 
 \section{Leadership}
-\textbf{President}, Triangle Fraternity, UW \hfill Nov 2025--Present\\
-\textbf{Vice President \& New Member Educator}, Triangle Fraternity, UW \hfill Dec 2023--Nov 2025
-\begin{itemize}
-\item Manage a STEM-exclusive fraternity, overseeing academic and social initiatives.
-\item Organize events, study resources, and mentorship programs.
-\item Update and enhance the educational program for new members, improving integration processes and developmental outcomes.
-\end{itemize}
-
-\textbf{Activities \& Volunteer Coordinator}, HOSA, UW \hfill Sep 2024--Apr 2025
-\begin{itemize}
-\item Coordinate volunteer opportunities and professional development events for future healthcare professionals.
-\end{itemize}
+\input{sections/leadership}
 
 \section{Skills}
-\textbf{Programming:} Python, Java, C, JavaScript, Bash, Git, HTML, LaTeX \textbar\ \textbf{Platforms:} Linux, Windows\\
-\textbf{ML/AI:} PyTorch, TensorFlow, NumPy, Pandas, scikit-learn, Neural Networks, Autoencoders, Computer Vision, Large Language Models, Test-Time Adaptation\\
-\textbf{Neuroscience:} EEG/ECoG signal processing, neural decoding models, closed-loop brain-computer interfaces\\
-\textbf{Research:} Grant writing, project management, signal processing, experimental design, technical documentation
+\input{sections/skills}
 
 \end{document}
