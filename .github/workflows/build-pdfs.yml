@@ -37,6 +37,23 @@ jobs:
             git push
           fi
 
+      # Publish the PDFs as a GitHub Release so these links always serve the newest build:
+      #   https://github.com/Zeckten/DannyMuir/releases/latest/download/cv.pdf
+      #   https://github.com/Zeckten/DannyMuir/releases/latest/download/resume.pdf
+      - name: Compute release tag
+        id: tag
+        run: echo "tag=v$(date -u +'%Y.%m.%d')" >> "$GITHUB_OUTPUT"
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: CV & Resume ${{ steps.tag.outputs.tag }}
+          files: |
+            cv.pdf
+            resume.pdf
+          make_latest: true
+
       - name: Trigger website redeploy
         if: env.VERCEL_DEPLOY_HOOK_URL != ''
         env:

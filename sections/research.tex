@@ -2,26 +2,44 @@
 % Uses \roleentry{title}{org}{dates}{advisor}{bullets}
 % Use \cvonly{} and \resumeonly{} for content visible in only one doc
 
+% Project sub-heading inside a role: \project{title}{sub-bullets}
+\newcommand{\project}[2]{%
+  \item \textbf{#1}%
+  \begin{itemize}[leftmargin=12pt,topsep=0pt,itemsep=1pt,parsep=0pt]%
+  #2%
+  \end{itemize}%
+}
+
 \roleentry%
   {Undergraduate Researcher}%
   {Neural Systems Laboratory, UW}%
   {Oct 2025--Present}%
-  {Advisor: Dr. Rajesh Rao, Paul G. Allen School of Computer Science \& Engineering}%
+  {Advisor: Dr.\ Rajesh Rao, Paul G. Allen School of Computer Science \& Engineering}%
   {%
-    \item Optimizing multi-session neural decoding framework in collaboration with Matthew Bryan, building on temporal basis function models (TBFMs) for closed-loop neural stimulation.
-    \item Testing and selecting optimal implementations for session-specific embeddings and test-time adaptation methods.
-    \item Improving training efficiency, model complexity, and cross-session generalization through systematic empirical evaluation.
-    \item Conducting honors thesis research on learning dynamical systems underlying traveling waves in motor cortex to forecast motor-relevant neural subspaces.
-    \cvonly{\item Extending Active Predictive Coding framework with hypernetwork-based hierarchical architectures to model cognitive map formation and entorhinal-hippocampal interaction.}
+    \project{msTBFM: multi-session stimulation response modeling (second author, TNSRE)}{%
+      \item Co-designed and ran every experiment in the paper: Monte Carlo cross-validation, cross-animal transfer, latency benchmarks, and ablations.
+      \item Key results: compared with single-session models, meta-learned pretraining reduced catastrophic forecast failures from 16/40 to 1/40 sessions and calibration data needs by 50--90\%.
+      \item Built the testing harness, analysis pipeline, statistical tests, and cloud infrastructure used to run every experiment at scale; designed most results figures.
+      \cvonly{\item Built co-adaptation, a non-meta-learning control for training and test-time adaptation, showing MAML's inner--outer loop improves sample efficiency and robustness.}
+    }
+    \project{Honors thesis: traveling-wave signals in motor cortex, toward closed-loop control}{%
+      \item Testing whether wave dynamics give a leading indicator of behavior for closed-loop stimulation; building models to forecast latent cortical dynamics under stimulation.
+      \item Decoding lever trajectory, trial outcome, and reaction time from generalized-phase gradients in rodent M1/M2 surface-grid recordings (Purdue collaborators).
+      \item Preliminary: pre-cue distributed cortical activity predicts upcoming hits vs.\ missed cues, surviving motor-state controls and spike-only replication.
+    }
+    \cvonly{\project{Predictive model of the hippocampal--entorhinal system}{%
+      \item Extending Active Predictive Coding and the Tolman-Eichenbaum Machine into a two-stream model of the entorhinal cortex and hippocampus, with hypernetwork-generated transitions and cross-stream memory.
+      \item Testing for emergent grid-cell-like codes and for planning and recall in BabyAI and a custom Recall Rooms task.
+    }}
   }
 
 \roleentry%
   {Associate Researcher, VP Operations}%
   {Sensors, Energy, and Automation Laboratory (SEAL), UW}%
   {Jan 2025--Oct 2025}%
-  {Advisor: Dr. Alexander Mamishev, Department of Electrical \& Computer Engineering}%
+  {Advisor: Dr.\ Alexander Mamishev, Department of Electrical \& Computer Engineering}%
   {%
-    \item Conducted VLF/ULF signal processing research for atmospheric and geophysical monitoring applications.
-    \item Contributed written sections and managed submission logistics for federal and industry grant proposals (DOE STTR, NIH, NSF, CDC, Google).
-    \item Led project management team developing custom automation and DevOps solutions for laboratory operations.
+    \item Developed signal processing for VLF/ULF electromagnetic measurements for geophysical monitoring.
+    \item Wrote sections of and coordinated federal and industry grant proposals (DOE STTR, NIH, NSF, CDC, Google).
+    \cvonly{\item Led a project team building lab automation and DevOps tooling.}
   }
